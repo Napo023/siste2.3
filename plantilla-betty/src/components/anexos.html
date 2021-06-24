@@ -1,0 +1,270 @@
+
+   
+    <script >
+    function mostrar(id) {
+        if (id == "estudiante") {
+            $("#estudiante").show();
+            $("#trabajador").hide();
+            $("#autonomo").hide();
+            $("#paro").hide();
+        }
+    
+        if (id == "trabajador") {
+            $("#estudiante").hide();
+            $("#trabajador").show();
+            $("#autonomo").hide();
+            $("#paro").hide();
+        }
+    
+        if (id == "autonomo") {
+            $("#estudiante").hide();
+            $("#trabajador").hide();
+            $("#autonomo").show();
+            $("#paro").hide();
+        }
+    
+        if (id == "paro") {
+            $("#estudiante").hide();
+            $("#trabajador").hide();
+            $("#autonomo").hide();
+            $("#paro").show();
+        }
+    }
+    </script>
+   
+    <div class="container mt-2 py-4">
+        <div class="row mb-2">            
+        
+        <div class="form-group col-lg-6 col-md-6 mt-1 ">
+        <label for="choosenino" classrm-label">Escoja el anexo</label>
+        <div class="form-group col-lg-6 col-md-6 mt-1 ">
+        <select class="form-select" id="choosenino" aria-label="Default select example">
+        <option selected="selected" class-danger">Seleccione...</option>
+        <option value="dates">Anexo 1</option>  
+        <option value="dates">Anexo 7</option> 
+        <option value="dates">Anexo 8</option> 
+                  
+        </select>
+        </div>
+        </div>
+        <div class="form-group col-lg-6 col-md-6 mt-1 ">
+            <label for="choosenino" classrm-label">Seleccione al ni&ntilde;o/a que desee anexar:</label>
+            <div class="form-group col-lg-6 col-md-6 mt-1 ">
+            <select class="form-select" id="choosenino" aria-label="Default select example">
+            <option selected="selected" class-danger">Seleccione...</option>
+            <option value="dates"></option>  
+            </select>
+            </div>
+        </div>
+        
+        <hr class="dropdown-divider my-3 bg-info" />
+    
+    <form >
+    
+    <div class="card shadow mb-0">
+    <div class="card-header  color-header ">
+    <h6 class="">anexo 1</h6>
+    </div>
+    <div class="card-body container">
+    <div class="form-row row ">                   
+        <div class="form-group col-lg-3 col-md-6 mt-1 ">
+        <label for="rutasector" class="form-label">modalidad:</label>
+        <select class="form-select" id="rutasector" aria-label="Default select example">
+        <option selected="selected" class="bg-danger">Seleccione...</option>
+        <option value="1">Actividades ejecutadas</option>  
+        <option value="2">Teletrabajo</option>                    
+        </select>
+        </div>
+        <div class="form-group col-lg-3 col-md-6 mt-1 ">
+            <label for="rutasector" class="form-label">Juego y aprendizaje:</label>
+            <select class="form-select" id="rutasector" aria-label="Default select example">
+            <option selected="selected" class="bg-danger">Seleccione...</option>
+            <option value="1">aaaaaaa</option>  
+            <option value="2">aaaaaaaa</option>                    
+            </select>
+        </div>
+        <div class="form-group col-lg-3 col-md-6 mt-1 ">
+            <label for="rutasector" class="form-label">Salud:</label>
+            <select class="form-select" id="rutasector" aria-label="Default select example">
+            <option selected="selected" class="bg-danger">Seleccione...</option>
+            <option value="1">aaaaaaa</option>  
+            <option value="2">aaaaaaaa</option>                    
+            </select>
+        </div>
+        <div class="form-group col-lg-3 col-md-6 mt-1 ">
+            <label for="rutasector" class="form-label">Metodo:</label>
+            <select class="form-select" id="rutasector" aria-label="Default select example">
+            <option selected="selected" class="bg-danger">Seleccione...</option>
+            <option value="videollamada">Videollamada</option>  
+            <option value="llamada">Llamada telef&oacute;nica</option>  
+            <option value="mensaje">Mensaje de texto</option>  
+            <option value="presencial">Presencial</option>     
+            <option value="otro">Otros</option>                 
+            </select>
+        </div>
+        <div class="form-group col-lg-3 col-md-6 mt-1 ">
+            <label for="rutasector" class="form-label">Tenia covid cuando se realizo la atenci&oacute;n:</label>
+            <select class="form-select" id="rutasector" aria-label="Default select example">
+            <option selected="selected" class="bg-danger">Seleccione...</option>
+            <option value="1">SI</option>  
+            <option value="2">NO</option>                    
+            </select>
+        </div>
+        <div class="form-group col-lg-3 col-md-6 mt-1 ">
+            <label for="rutasector" class="form-label">Quien cuida del ni&ntilde;o/a:</label>
+            <select class="form-select" id="rutasector" aria-label="Default select example">
+            <option selected="selected" class="bg-danger">Seleccione...</option>
+            <option value="1">Mam&aacute;</option>  
+            <option value="2">Pap&aacute;</option> 
+            <option value="1">Hermano/a</option>  
+            <option value="2">Abuelos</option> 
+            <option value="1">T&iacute;os</option>                              
+            </select>
+        </div>
+                  
+                    
+      </div>    
+    </div>   
+    </div>
+    
+    <div class="card shadow mb-5">
+    <div class="card-header color-header ">
+    <h6 class="">registro de la hoja de ruta </h6>
+    </div>
+    <div class="card-body container">
+        <div class="form-row row ">
+        <div class="form-group col-lg-1 col-md-3 mt-1  ">
+        <label for="rutaindice" class="form-label"> N#:</label>
+        <input type="text" class="form-control" id="rutaindice"/>
+        </div>
+        <div class="form-group col-lg-1 col-md-3 mt-1 ">
+        <label for="rutadia" class="form-label">D&iacute;a</label>
+        <select class="form-select" id="rutadia" aria-label="Default select example">
+        <option selected="selected" class="bg-danger">...</option>
+        <option value="1" >1</option>  
+        <option value="2">2</option>  
+        <option value="3">3</option>  
+        <option value="4">4</option>  
+        <option value="1" >5</option>  
+        <option value="2">6</option>  
+        <option value="3">7</option>  
+        <option value="4">8</option> 
+        <option value="1" >9</option>  
+        <option value="2">10</option>  
+        <option value="3">11</option>  
+        <option value="4">12</option> 
+        <option value="1" >13</option>  
+        <option value="2">14</option>  
+        <option value="3">15</option>  
+        <option value="4">16</option> 
+        <option value="1" >17</option>  
+        <option value="2">18</option>  
+        <option value="3">19</option>  
+        <option value="4">20</option> 
+        <option value="3">21</option>  
+        <option value="4">22</option> 
+        <option value="1" >23</option>  
+        <option value="2">24</option>  
+        <option value="3">25</option>  
+        <option value="4">26</option> 
+        <option value="1" >27</option>  
+        <option value="2">28</option>  
+        <option value="3">29</option>  
+        <option value="4">30</option> 
+        <option value="4">31</option>
+        
+        </select>
+        </div>
+        <div class="form-group col-lg-1 col-md-3 mt-1 ">
+        <label for="rutames" class="form-label">Mes:</label>
+        <select class="form-select" id="rutames" aria-label="Default select example">
+        <option selected="selected" class="bg-danger">...</option>
+        <option value="1" >1</option>  
+        <option value="2">2</option>  
+        <option value="3">3</option>  
+        <option value="4">4</option>  
+        <option value="5" >5</option>  
+        <option value="6">6</option>  
+        <option value="7">7</option>  
+        <option value="8">8</option> 
+        <option value="9" >9</option>  
+        <option value="10">10</option>  
+        <option value="11">11</option>  
+        <option value="12">12</option> 
+        </select>
+        </div>
+        <div class="form-group col-lg-2 col-md-3 mt-1  ">
+        <label for="rutaano" class="form-label">Año:</label>
+        <input type="text" class="form-control" id="rutaano"/>
+        </div>
+        <div class="form-group col-lg-3 col-md-6 mt-1 ">
+        <label for="rutahoraactivi" class="form-label">Hora de la actividad:</label>
+        <input type="time" class="form-control" id="rutahoraactivi"/>
+        </div>  
+        <div class="form-group col-lg-4 col-md-6 mt-1 ">
+        <label for="rutanombrenino" class="form-label">Nombres del ni&ntilde;o/a: de 1 a 3 a&ntilde;os</label>
+        <input type="text" class="form-control form-name" id="rutanombrenino"/>
+        </div> 
+        <div class="form-group col-lg-6 col-md-6 mt-1 ">
+        <label for="rutareprenino" class="form-label">Representante del ni&ntilde;o/a atendido:</label>
+        <input type="text" class="form-control form-name" id="rutareprenino"/>
+        </div>     
+        <div class="form-group col-lg-6 col-md-6 mt-1 ">
+        <label for="rutacedularepre" class="form-label">C&eacute;dula del representante:</label>
+        <input type="number" class="form-control" id="rutacedularepre"/>
+        </div>   
+        <div class="form-group col-lg-4 col-md-6 mt-1 ">
+        <label for="rutaactividesarr" class="form-label">Actividades Desarrolladas:</label>
+        <a type="button" class="mx-2 mt-1 text-primary td-none">
+         <i class="fas fa-plus-circle fs-6 mx-2"></i></a>
+        <div class="form-floating">
+        <textarea class="form-control text-area" placeholder="Leave a comment here" id="rutaactividesarr"></textarea>
+        <label class="label-text-area" for="floatingTextarea">Comentar</label>
+        </div>
+        </div>  
+        <div class="form-group col-lg-4 col-md-6 mt-1 ">
+        <label for="rutaobservaciones" class="form-label">Observaciones:</label>
+        <a type="button" class="mx-2 mt-1 text-primary td-none">
+          <i class="fas fa-plus-circle fs-6 mx-2"></i></a>
+        <div class="form-floating">
+        <textarea class="form-control text-area" placeholder="Leave a comment here" id="rutaobservaciones"></textarea>
+        <label class="label-text-area" for="floatingTextarea">Comentar</label> 
+        </div>
+        </div> 
+        <div class="form-group col-lg-4 col-md-12 mt-2 ">
+        <label for="rutadirecdistri" class="form-label">Direcci&oacute;n distrital:</label>
+        <select class="form-select" id="rutadirecdistri" aria-label="Default select example">
+        <option selected="selected" class="bg-danger">...</option>
+        <option value="1" >1</option>  
+        <option value="2">2</option>  
+        <option value="3">3</option>  
+        <option value="4">4</option>  
+        <option value="5" >5</option>  
+        <option value="6">6</option>  
+        <option value="7">7</option>  
+        <option value="8">8</option> 
+        <option value="9" >9</option>  
+        <option value="10">10</option>  
+        <option value="11">11</option>  
+        <option value="12">12</option> 
+        </select>
+        </div>    
+        <button type="submit" class="btn color-btn col-lg-6 col-md-6 mt-1  mt-4 mx-auto" >Guardar informaci&oacute;n</button> 
+      </div>
+    </div>
+    </div>
+    </form>
+    <div className="row">
+    <div className="col-lg-12 col-md-6">
+       
+    
+    
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.semanticui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+    
+    </body>
+    </html>
