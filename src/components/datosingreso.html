@@ -1,0 +1,352 @@
+<script >
+    const formulario = document.getElementById('formulario');
+    const inputs = document.querySelectorAll('#formulario input');
+    
+    const expresiones = {
+        direccion: /^[a-zA-ZÀ-ÿ\.\s]{6,30}$/,
+        grupoEdad: /^[a-zA-ZÀ-ÿ-Z0-9\_\-\s]{2,30}$/,
+        usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+        nombre: /^[a-zA-ZÀ-ÿ\s]{4,30}$/, // Letras y espacios, pueden llevar acentos.
+        password: /^.{5,12}$/, // 4 a 12 digitos.
+        correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        cedula: /^\d{10,10}$/ // 7 a 14 numeros.
+    }
+    
+    const validarFormulario = (e) =>{
+        switch (e.target.name){
+            case 'nombrenino':
+           validarcampos(expresiones.nombre, e.target, 'nombres');
+            break;
+            case 'apellidonino':
+            validarcampos(expresiones.nombre, e.target, 'apellidos');
+            break;
+            case 'fechanacinino':
+            validarcampos(expresiones.password, e.target, 'fecha');
+            break;
+            case 'cedulanino':
+            validarcampos(expresiones.cedula, e.target, 'cedula');
+            break;
+            case 'nombrerepre':
+            validarcampos(expresiones.nombre, e.target, 'nombresrep');
+            break;
+            case 'apellidorepre':
+            validarcampos(expresiones.nombre, e.target, 'apellidosrep');
+            break;
+            case 'cedularepre':
+            validarcampos(expresiones.cedula, e.target, 'cedularep');
+            break;
+            case 'domiciliorepre':
+            validarcampos(expresiones.direccion, e.target, 'domiciliorep');
+            break;
+            case 'educadoranom':
+            validarcampos(expresiones.nombre, e.target, 'nombresedu');
+            break;
+            case 'educadoraapell':
+            validarcampos(expresiones.nombre, e.target, 'apellidosedu');
+            break;
+            case 'educadoracedu':
+            validarcampos(expresiones.cedula, e.target, 'cedulaedu');
+            break;
+            case 'educadoragrupedad':
+            validarcampos(expresiones.grupoEdad, e.target, 'grupoedadeduca');
+            break;
+            case 'coordnombre':
+            validarcampos(expresiones.nombre, e.target, 'nombrescoord');
+            break;
+            case 'coordapellido':
+            validarcampos(expresiones.nombre, e.target, 'apellcoord');
+            break;
+            case 'coordcedula':
+            validarcampos(expresiones.cedula, e.target, 'cedulacoord');
+            break;
+            case 'datosinfocodisimies':
+            validarcampos(expresiones.usuario, e.target, 'datoscodisimies');
+            break;
+            case 'datosinfodistrito':
+            validarcampos(expresiones.usuario, e.target, 'datosdistrito');
+            break;
+            
+            
+        }
+    }
+    const validarcampos = (expresion, input, campo) =>{
+        if(expresion.test(input.value)){
+                document.getElementById(`grupo__${campo}`).classList.add('form-group-correcto');
+                document.getElementById(`grupo__${campo}`).classList.remove('form-group-incorrecto'); 
+                document.querySelector(`#grupo__${campo} #valid`).classList.remove('fa-times-circle');               
+                document.querySelector(`#grupo__${campo} #valid`).classList.add('fa-check-circle');
+                document.querySelector(`#grupo__${campo} #form__input-error`).classList.add('form__input-error');
+                document.querySelector(`#grupo__${campo} #form__input-error`).classList.remove('form__input-error-activo');
+               
+                
+            }else{
+                document.getElementById(`grupo__${campo}`).classList.add('form-group-incorrecto');
+                document.querySelector(`#grupo__${campo} #valid`).classList.add('fa-times-circle');
+                document.querySelector(`#grupo__${campo} #form__input-error`).classList.remove('form__input-error');
+                document.querySelector(`#grupo__${campo} #form__input-error`).classList.add('form__input-error-activo');
+            }
+    }
+    inputs.forEach((input)=>{
+        input.addEventListener('keyup', validarFormulario );
+        input.addEventListener('blur', validarFormulario);
+    });
+    formulario.addEventListener('submit', (e) =>{
+        e.preventDefault();
+    });
+    
+     </script> 
+
+        <div class="container mt-2 py-4">
+         
+        <form class="formulario" id="formulario">
+       
+        <div class="card shadow mb-0">
+    <div class="card-header color-header ">
+        <h6 class="">Datos del ni&ntilde;o</h6>
+    </div>
+    <div class="card-body container">
+        <div class="form-row row ">
+            <!-- VALIDAR FORMULARIO-->
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__nombres">
+            <label for="nombresnino" class="form-label">Nombres:</label>
+            <div class="formulario__grupo-input">
+                <input type="text" class="form-control form-name" id="nombresnino" name="nombrenino" />
+                <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                
+            </div>
+                <p class="form__input-error" id="form__input-error">Los nombres del ni&ntilde;o/a solo puede contener letras </p>
+            </div>
+
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__apellidos">
+                <label for="apellidosnino" class="form-label">Apellidos</label>            
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control form-name" id="apellidosnino" name="apellidonino"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">Los apellidos del ni&ntilde;o/a solo puede contener letras </p>
+            </div>
+
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__fecha">
+                <label for="fechanacimientonino" class="form-label"> Fecha de nacimiento:</label>
+                <div class="formulario__grupo-input">
+                    <input type="date" class="form-control" id="fechanacimientonino" name="fechanacinino"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">Este campo no puede estar vacio </p>
+            </div>    
+
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__cedula">
+                <label for="cedulanino" class="form-label">Cedula: </label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="form-control" id="cedulanino" name="cedulanino" />
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">La cedula tiene que ser de 10 d&iacute;gitos y solo puede tener numeros </p>
+            </div>     
+          </div>
+    </div>
+</div>
+<div class="card shadow mb-0">
+    <div class="card-header color-header">
+        <h6 class="">DATOS REPRESENTANTE</h6>
+    </div>
+    <div class="card-body container">
+        <div class="form-row row ">
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__nombresrep">
+                <label for="reprenombres" class="form-label">Nombres:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control form-name" id="reprenombres" name="nombrerepre"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">Los nombres del representante solo puede contener letras</p>
+            </div>   
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__apellidosrep">
+                <label for="repreapellidos" class="form-label">Apellidos:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control form-name" id="repreapellidos" name="apellidorepre"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">Los apellidos del representante solo puede contener letras </p>
+            </div>   
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__cedularep">
+                <label for="represcedula" class="form-label"> Cedula:</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="form-control" id="represcedula" name="cedularepre"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">La cedula tiene que ser de 10 d&iacute;gitos y solo puede tener numeros </p>
+            </div>   
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__domiciliorep">
+                <label for="repredomicilio" class="form-label">Direci&oacute;n de domicilio: </label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control" id="repredomicilio" name="domiciliorepre"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">La direcci&oacute;n de domicilio debe tener de 6 a 30 caracteres </p>
+            </div>  
+          </div>
+    </div>
+
+    
+</div>
+<div class="card shadow mb-0">
+    <div class="card-header color-header">
+        <h6 class="">educadoras</h6>
+    </div>
+    <div class="card-body container">
+        <div class="form-row row ">
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__nombresedu">
+                <label for="educadoranombres" class="form-label">Nombres:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control form-name" id="educadoranombres" name="educadoranom"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">Los nombres de la educadora solo puede contener letras </p>
+            </div>   
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__apellidosedu">
+                <label for="educadoraapellidos" class="form-label">Apellidos:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control form-name" id="educadoraapellidos" name="educadoraapell"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">Los apellidos de la educadora solo puede contener letras </p>
+            </div>   
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__cedulaedu">
+                <label for="educadoracedula" class="form-label"> Cedula:</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="form-control" id="educadoracedula" name="educadoracedu"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">LLa cedula tiene que ser de 10 d&iacute;gitos y solo puede tener numeros </p>
+            </div>   
+             <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__grupoedadeduca">
+               <label for="educadoragrupoedad" class="form-label">Grupo de edad que maneja: </label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control" id="educadoragrupoedad" name="educadoragrupedad"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">Este campo de edad no puede estar vac&iacute;o </p>
+            </div>     
+          </div>
+    </div>
+</div>
+<div class="card shadow mb-0">
+    <div class="card-header color-header">
+        <h6 class="">coordinadoras</h6>
+    </div>
+    <div class="card-body container">
+        <div class="form-row row ">
+            <div class="form-group col-lg-4 col-md-6 mt-1 " id="grupo__nombrescoord">
+                <label for="coordnombres" class="form-label">Nombres:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control form-name" id="coordnombres" name="coordnombre"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">Los nombres de la coordinadora solo puede contener letras </p>
+            </div>   
+            <div class="form-group col-lg-4 col-md-6 mt-1 " id="grupo__apellcoord">
+                <label for="coordapellidos" class="form-label">Apellidos</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control form-name" id="coordapellidos" name="coordapellido"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">Los apellidos de la coordinadora solo puede contener letras </p>
+            </div>   
+            <div class="form-group col-lg-4 col-md-6 mt-1 " id="grupo__cedulacoord">
+                <label for="coordcedula" class="form-label"> Cedula:</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" class="form-control" id="coordcedula" name="coordcedula"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">LLa cedula tiene que ser de 10 d&iacute;gitos y solo puede tener numeros </p>
+            </div>      
+          </div>
+    </div>
+</div>
+<div class="card shadow mb-5">
+    <div class="card-header color-header">
+        <h6 class="">Datos informativos del centro</h6>
+    </div>
+    <div class="card-body container">
+        <div class="form-row row ">
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__provinciainfo">
+                <label for="infoprovincia" class="form-label">Provincia:</label>
+                <div class="formulario__grupo-input">
+                    <select class="form-select" id="infoprovincia" aria-label="Default select example" name="datosprovincia">
+                        <option selected="selected" class="selecionar">Seleccione...</option>
+                        <option value="Azuay" >Azuay</option>  
+                        <option value="Cañar">Cañar</option>  
+                        <option value="Loja">Loja</option>  
+                        <option value="Carchi">Carchi</option>  
+                        <option value="Imbabura">Imbabura</option>  
+                        <option value="Pichincha">Pichincha</option>  
+                        <option value="Cotopaxi">Cotopaxi</option>  
+                        <option value="Tungurahua">Tungurahua</option>  
+                        <option value="Bolívar">Bolívar</option>  
+                        <option value="Chimborazo">Chimborazo</option>  
+                        <option value="Sto. Domingo de los Tsachilas">Sto. Domingo de los Tsachilas</option>  
+                        <option value="Esmeraldas">Esmeraldas</option>  
+                        <option value="Manabí">Manabí</option>  
+                        <option value="Guayas">Guayas</option>  
+                        <option value="Los Ríos">Los Ríos</option>  
+                        <option value="El Oro">El Oro</option>  
+                        <option value="Santa Elena">Santa Elena</option>  
+                        <option value="Sucumbíos">Sucumbíos</option>  
+                        <option value="Napo">Napo</option>  
+                        <option value="Pastaza">Pastaza</option>  
+                        <option value="Orellana">Orellana</option>  
+                        <option value="Morona Santiago">Morona Santiago</option>  
+                        <option value="Zamora Chinchipe">Zamora Chinchipe</option>  
+                        <option value="Galápagos">Galápagos</option>  
+                        <option value="Antártida Ecuatoriana">Antártida Ecuatoriana</option> 
+                        </select>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">Escoja una de las opciones del menu </p>
+            </div> 
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__nombres">
+                <label for="infounidatencion" class="form-label">Unidad de atenci&oacute;n</label>
+                <div class="formulario__grupo-input">
+                    <select class="form-select" id="infounidatencion" aria-label="Default select example" name="unidadatencion">
+                        <option selected="selected" class="bg-danger">Seleccione...</option>
+                        <option value="1">1</option>  
+                        <option value="2">2</option>  
+                        <option value="3">3</option>  
+                        <option value="4">4</option>                          
+                    </select>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">LEscoja una de las opciones del menu </p>
+            </div>            
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__datoscodisimies">
+                <label for="codigosimies" class="form-label"> C&oacute;odigo SIMIES:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control" id="codigosimies" name="datosinfocodisimies"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">El codigo SIMIES debe tener un m&iacute;nimo de 6 caracteres y solo puede contener letras y numeros </p>
+            </div>  
+            <div class="form-group col-lg-3 col-md-6 mt-1 " id="grupo__datosdistrito">
+                <label for="infodistrito" class="form-label">Distrito: </label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control" id="infodistrito" name="datosinfodistrito"/>
+                    <i class="fas fa-times-circle form__validate-state" id="valid"></i>
+                </div>
+                    <p class="form__input-error" id="form__input-error">El distrito  debe tener un m&iacute;nimo de 6 caracteres y solo puede contener letras y numeros </p>
+            </div>  
+            <div class=" form__mensaje-err col-lg-12 col-sm-12 col-md-12 col-xl-12" id="form__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Error</b> Por favor rellene todos los campos</p>
+            </div>  
+            <button type="submit" class="btn color-btn col-lg-6 col-md-6 mt-1  mt-4 mx-auto" >Guardar informaci&oacute;n</button>       
+            <em class="form__mensaje-exito" id="form__mensaje-exito">Datos guardados correctamente!</em>
+        </div>
+         
+       
+    </div>
+    
+    
+</div>
+ </form>
+</div>
+
+      
